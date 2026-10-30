@@ -1,0 +1,11 @@
+version: 2
+
+seeds:
+  - name: fuel_type_mapping
+    description: >
+      Maps each source's fuel/product code (EIA international productId, EIA-930 fueltype)
+      to one common fuel_key, so Morocco/US and annual/hourly data can be compared.
+    config:
+      column_types:
+        source_code: string
+        is_aggregate: boolean

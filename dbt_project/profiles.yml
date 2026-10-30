@@ -1,0 +1,14 @@
+# Uses Application Default Credentials (gcloud auth application-default login).
+# No key file and no secrets here, so this file is safe to commit.
+# Set your project first:  export GCP_PROJECT_ID=your-gcp-project-id
+eia_energy:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      dataset: eia_analytics
+      location: EU
+      threads: 4
+      job_execution_timeout_seconds: 300

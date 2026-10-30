@@ -1,0 +1,33 @@
+source_system,source_code,source_name,fuel_key,fuel_category,is_aggregate
+intl,2,Electricity total,total,aggregate,true
+intl,27,Nuclear,nuclear,nuclear,false
+intl,28,Fossil fuels total,fossil_total,aggregate,true
+intl,29,Renewables total,renewables_total,aggregate,true
+intl,30,Coal,coal,fossil,false
+intl,31,Natural gas,natural_gas,fossil,false
+intl,32,Oil,oil,fossil,false
+intl,33,Hydroelectricity,hydro,renewable,false
+intl,34,Non-hydroelectric renewables total,non_hydro_renewables_total,aggregate,true
+intl,35,Geothermal,geothermal,renewable,false
+intl,36,Solar and tide and wave and fuel cell total,solar_tide_wave_total,aggregate,true
+intl,37,Wind,wind,renewable,false
+intl,38,Biomass and waste,biomass,renewable,false
+intl,82,Hydroelectric pumped storage,pumped_storage,storage,false
+intl,116,Solar,solar,renewable,false
+intl,117,Tide and wave,tide_wave,renewable,false
+intl,2890,Other gases,other_gases,fossil,false
+us,COL,Coal,coal,fossil,false
+us,NG,Natural gas,natural_gas,fossil,false
+us,OIL,Petroleum,oil,fossil,false
+us,NUC,Nuclear,nuclear,nuclear,false
+us,WAT,Hydro,hydro,renewable,false
+us,WND,Wind,wind,renewable,false
+us,WNB,Wind with integrated battery storage,wind,renewable,false
+us,SUN,Solar,solar,renewable,false
+us,SNB,Solar with integrated battery storage,solar,renewable,false
+us,BAT,Battery storage,battery_storage,storage,false
+us,PS,Pumped storage,pumped_storage,storage,false
+us,OTH,Other,other,other,false
+us,UNK,Unknown,unknown,unknown,false
+us,UES,Unknown energy source,unknown,unknown,false
+us,GEO,Geothermal,geothermal,renewable,false

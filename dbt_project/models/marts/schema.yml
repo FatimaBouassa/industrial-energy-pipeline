@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: dim_fuel_type
+    description: One row per common fuel, shared by the annual and hourly facts.
+    columns:
+      - name: fuel_key
+        data_tests:
+          - unique
+          - not_null
+      - name: fuel_category
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['fossil', 'nuclear', 'renewable', 'storage', 'other', 'unknown', 'aggregate']
+      - name: is_aggregate
+        data_tests:
+          - not_null
+
+  - name: fct_generation_annual
+    description: "Annual generation (TWh) by country and fuel. Grain: country / year / fuel_key."
+    columns:
+      - name: generation_key
+        data_tests:
+          - unique
+          - not_null
+      - name: fuel_key
+        description: A null here means a product code is missing from the fuel_type_mapping seed.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_fuel_type')
+              field: fuel_key
+
+  - name: fct_generation_hourly
+    description: "Hourly US generation (MWh). Grain: region / source fuel code / hour."
+    columns:
+      - name: generation_key
+        data_tests:
+          - unique
+          - not_null
+      - name: fuel_key
+        description: A null here means a fueltype code is missing from the fuel_type_mapping seed.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_fuel_type')
+              field: fuel_key
+
+  - name: mart_generation_mix_annual
+    description: Generation mix (share of total) per country and year, individual fuels only.
+
+  - name: mart_category_share_annual
+    description: Share of each fuel category per country and year, one column per category (dashboard-ready).
+    columns:
+      - name: country_year_key
+        data_tests:
+          - unique
+          - not_null
+      - name: year_date
+        data_tests:
+          - not_null

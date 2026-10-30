@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: eia_raw
+    database: "{{ env_var('GCP_PROJECT_ID') }}"
+    schema: eia_raw
+    description: Raw EIA data loaded from GCS (one row per API row, plus _extracted_at).
+    tables:
+      - name: intl_electricity_generation
+        description: Annual electricity generation by country and fuel (EIA international route, unit BKWH).
+      - name: us_fuel_type_hourly
+        description: Hourly US electricity generation by balancing authority and fuel type (EIA-930).
